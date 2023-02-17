@@ -2,7 +2,7 @@ import React from "react";
 
 function TopAnimeCard() {
 	return (
-		<div className="flex gap-2 bg-base-100">
+		<div className="flex gap-2 bg-base-200">
 			<img
 				src="https://img.bunnycdnn.ru/_r/300x400/100/54/90/5490cb32786d4f7fef0f40d7266df532/5490cb32786d4f7fef0f40d7266df532.jpg"
 				alt="pic"

@@ -183,24 +183,6 @@ export default function Carousel() {
 						</div>
 					</div>
 				</SwiperSlide>
-				{/* <SwiperSlide>
-					<img
-						src="https://coolthemestores.com/wp-content/uploads/2023/01/vinland-saga-wallpaper-background.jpg"
-						alt="img"
-					/>
-				</SwiperSlide>{" "}
-				<SwiperSlide>
-					<img
-						src="https://coolthemestores.com/wp-content/uploads/2023/01/vinland-saga-wallpaper-background.jpg"
-						alt="img"
-					/>
-				</SwiperSlide>{" "}
-				<SwiperSlide>
-					<img
-						src="https://coolthemestores.com/wp-content/uploads/2023/01/vinland-saga-wallpaper-background.jpg"
-						alt="img"
-					/>
-				</SwiperSlide> */}
 			</Swiper>
 		</>
 	);
