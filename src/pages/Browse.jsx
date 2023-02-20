@@ -28,12 +28,13 @@ const genreOptions = [
 function Browse() {
 	return (
 		<>
-			<div className="flex flex-wrap gap-4 bg-base-300 p-4 justify-center w-full">
+			{/* <div className="flex flex-wrap gap-2 bg-base-300 p-4 justify-between w-full"> */}
+			<div className="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-2 bg-base-300 p-4 justify-between w-full text-center">
 				{genreOptions.map((option) => {
 					// console.log(option);
 					return (
 						<div
-							className="py-1 px-2 bg-primary rounded text-white text-sm hover:opacity-75 cursor-pointer"
+							className="py-1 px-2 bg-primary rounded text-white text-sm hover:opacity-75 cursor-pointer capitalize font-semibold"
 							key={option}
 						>
 							{option}
@@ -42,7 +43,7 @@ function Browse() {
 				})}
 			</div>
 
-			<div className="mx-auto grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] md:grid-cols-5 gap-4 justify-between p-4 sm:px-0">
+			<div className="mx-auto grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] md:grid-cols-5 gap-4 justify-between py-4">
 				<AnimeCard />
 				<AnimeCard />
 				<AnimeCard />

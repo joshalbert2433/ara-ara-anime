@@ -15,7 +15,7 @@ function Header() {
 					<input
 						type="text"
 						placeholder="Search Anime"
-						className="input input-bordered w-full max-w-xs pr-12"
+						className="input input-bordered w-full max-w-sm pr-12"
 					/>
 					<FaSearch className="absolute right-4 top-4" />
 				</div>

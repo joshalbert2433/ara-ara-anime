@@ -8,10 +8,10 @@ import Browse from "./Browse";
 function Home() {
 	return (
 		<>
-			<div className="px-4 sm:px-0">
+			<div className="">
 				<Carousel />
 			</div>
-			<div className="mx-auto grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] md:grid-cols-5 gap-4 justify-between p-4 sm:px-0">
+			<div className="mx-auto grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] md:grid-cols-5 gap-4 justify-between py-4">
 				<AnimeCard />
 				<AnimeCard />
 				<AnimeCard />

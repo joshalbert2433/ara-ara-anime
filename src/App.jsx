@@ -2,8 +2,7 @@ import React from "react";
 import Home from "./pages/Home";
 import Header from "./layouts/Header";
 import TopAnimeCard from "./components/TopAnimeCard";
-import AnimeCard from "./components/AnimeCard";
-import Sample from "./pages/Sample";
+import Watch from "./pages/Watch";
 import Browse from "./pages/Browse";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -16,10 +15,11 @@ function App() {
 				<Header />
 
 				<div className="container mx-auto xl:flex gap-4 mt-4">
-					<div className="w-full xl:min-w-[75%]">
+					<div className="w-full xl:min-w-[75%] px-4 sm:px-0">
 						<Routes>
 							<Route path="/" element={<Home />}></Route>
 							<Route path="/browse" element={<Browse />}></Route>
+							<Route path="/watch" element={<Watch />}></Route>
 						</Routes>
 					</div>
 					<div className="px-4 sm:px-0 w-full xl:min-w-[25%]">
