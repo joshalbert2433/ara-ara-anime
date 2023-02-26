@@ -10,9 +10,9 @@ import "swiper/css/navigation";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 
-export default function Carousel() {
+export default function Carousel({ mustWatchAnime }) {
 	return (
-		<>
+		<div>
 			<Swiper
 				spaceBetween={30}
 				centeredSlides={true}
@@ -28,162 +28,42 @@ export default function Carousel() {
 				modules={[Autoplay, Pagination, Navigation]}
 				className="mySwiper"
 			>
-				<SwiperSlide>
-					<img
-						src="https://coolthemestores.com/wp-content/uploads/2023/01/vinland-saga-wallpaper-background.jpg"
-						alt="img"
-						className="relative"
-					/>
-					<div className="absolute bottom-0 left-0 right-0 bg-base-300">
-						<div className="flex items-center justify-between p-2 sm:p-4">
-							<div className="w-full xl:w-[75%] text-left">
-								<p className="text-md sm:text-2xl font-semibold cursor-pointer">
-									Eminence of Shadow
-								</p>
-								<span className="hidden sm:inline-block sm:line-clamp-2">
-									Lorem ipsum dolor sit amet consectetur
-									adipisicing elit. Quasi hic consectetur
-									facere earum molestiae, dolores placeat
-									dignissimos magni! Nam, rerum!
-								</span>
+				{mustWatchAnime?.map((data, index) => {
+					return (
+						<SwiperSlide key={index}>
+							<img
+								src={data.animeImg}
+								alt="img"
+								// className="h-[250px] md:h-[280px] lg:h-[300px] object-cover w-full"
+								className="relative object-cover w-full"
+							/>
+							<div className="absolute top-0 left-0 px-2 bg-primary text-white font-semibold">
+								Must watch
 							</div>
-							<div className="hidden xl:block xl:w-[25%] ">
-								<a
-									href=""
-									className="px-8 py-4 bg-accent text-white rounded-3xl text-2xl font-semibold hover:opacity-75"
-								>
-									Watch Now
-								</a>
+							<div className="absolute bottom-0 left-0 right-0 bg-base-300">
+								<div className="flex items-center justify-between p-2 sm:p-4">
+									<div className="w-full xl:w-[75%] text-left">
+										<p className="text-md sm:text-2xl font-semibold cursor-pointer">
+											{data.animeTitle}
+										</p>
+										<span className="hidden sm:inline-block sm:line-clamp-2">
+											{data.synopsis}
+										</span>
+									</div>
+									<div className="hidden xl:block xl:w-[25%] ">
+										<a
+											href=""
+											className="px-8 py-4 bg-accent text-white rounded-3xl text-2xl font-semibold hover:opacity-75"
+										>
+											Watch Now
+										</a>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
-				</SwiperSlide>
-				<SwiperSlide>
-					<img
-						src="https://coolthemestores.com/wp-content/uploads/2023/01/vinland-saga-wallpaper-background.jpg"
-						alt="img"
-						className="relative"
-					/>
-					<div className="absolute bottom-0 left-0 right-0 bg-base-300">
-						<div className="flex items-center p-2 sm:p-4">
-							<div className="w-full xl:w-[75%] text-left">
-								<p className="text-md sm:text-2xl font-semibold cursor-pointer">
-									Eminence of Shadow
-								</p>
-								<span className="hidden sm:inline-block sm:line-clamp-2">
-									Lorem ipsum dolor sit amet consectetur
-									adipisicing elit. Quasi hic consectetur
-									facere earum molestiae, dolores placeat
-									dignissimos magni! Nam, rerum!
-								</span>
-							</div>
-							<div className="hidden xl:block xl:w-[25%] ">
-								<a
-									href=""
-									className="px-8 py-4 bg-accent text-white rounded-3xl text-2xl font-semibold "
-								>
-									Watch Now
-								</a>
-							</div>
-						</div>
-					</div>
-				</SwiperSlide>
-				<SwiperSlide>
-					<img
-						src="https://coolthemestores.com/wp-content/uploads/2023/01/vinland-saga-wallpaper-background.jpg"
-						alt="img"
-						className="relative"
-					/>
-					<div className="absolute bottom-0 left-0 right-0 bg-base-300">
-						<div className="flex items-center p-2 sm:p-4">
-							<div className="w-full xl:w-[75%] text-left">
-								<p className="text-md sm:text-2xl font-semibold cursor-pointer">
-									Eminence of Shadow
-								</p>
-								<span className="hidden sm:inline-block sm:line-clamp-2">
-									Lorem ipsum dolor sit amet consectetur
-									adipisicing elit. Quasi hic consectetur
-									facere earum molestiae, dolores placeat
-									dignissimos magni! Nam, rerum! dignissimos
-									magni! Nam, rerum! Lorem ipsum dolor sit
-									amet consectetur adipisicing elit. Quasi hic
-									consectetur facere earum molestiae, dolores
-									placeat dignissimos magni! Nam, rerum!
-									dignissimos magni! Nam, rerum!
-								</span>
-							</div>
-							<div className="hidden xl:block xl:w-[25%] ">
-								<a
-									href=""
-									className="px-8 py-4 bg-accent text-white rounded-3xl text-2xl font-semibold "
-								>
-									Watch Now
-								</a>
-							</div>
-						</div>
-					</div>
-				</SwiperSlide>
-				<SwiperSlide>
-					<img
-						src="https://coolthemestores.com/wp-content/uploads/2023/01/vinland-saga-wallpaper-background.jpg"
-						alt="img"
-						className="relative"
-					/>
-					<div className="absolute bottom-0 left-0 right-0 bg-base-300">
-						<div className="flex items-center p-2 sm:p-4">
-							<div className="w-full xl:w-[75%] text-left">
-								<p className="text-md sm:text-2xl font-semibold cursor-pointer">
-									Eminence of Shadow
-								</p>
-								<span className="hidden sm:inline-block sm:line-clamp-2">
-									Lorem ipsum dolor sit amet consectetur
-									adipisicing elit. Quasi hic consectetur
-									facere earum molestiae, dolores placeat
-									dignissimos magni! Nam, rerum!
-								</span>
-							</div>
-							<div className="hidden xl:block xl:w-[25%] ">
-								<a
-									href=""
-									className="px-8 py-4 bg-accent text-white rounded-3xl text-2xl font-semibold "
-								>
-									Watch Now
-								</a>
-							</div>
-						</div>
-					</div>
-				</SwiperSlide>
-				<SwiperSlide>
-					<img
-						src="https://coolthemestores.com/wp-content/uploads/2023/01/vinland-saga-wallpaper-background.jpg"
-						alt="img"
-						className="relative"
-					/>
-					<div className="absolute bottom-0 left-0 right-0 bg-base-300">
-						<div className="flex items-center p-2 sm:p-4">
-							<div className="w-full xl:w-[75%] text-left">
-								<p className="text-md sm:text-2xl font-semibold cursor-pointer">
-									Eminence of Shadow
-								</p>
-								<span className="hidden sm:inline-block sm:line-clamp-2">
-									Lorem ipsum dolor sit amet consectetur
-									adipisicing elit. Quasi hic consectetur
-									facere earum molestiae, dolores placeat
-									dignissimos magni! Nam, rerum!
-								</span>
-							</div>
-							<div className="hidden xl:block xl:w-[25%] ">
-								<a
-									href=""
-									className="px-8 py-4 bg-accent text-white rounded-3xl text-2xl font-semibold "
-								>
-									Watch Now
-								</a>
-							</div>
-						</div>
-					</div>
-				</SwiperSlide>
+						</SwiperSlide>
+					);
+				})}
 			</Swiper>
-		</>
+		</div>
 	);
 }

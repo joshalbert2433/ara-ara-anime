@@ -1,27 +1,28 @@
 import React from "react";
 
-function AnimeCard() {
+function AnimeCard({ data }) {
 	return (
-		<div className="bg-base-300 rounded-sm overflow-hidden">
+		<div className="bg-base-300 rounded-sm overflow-hidden hover:opacity-60">
 			<div className="relative">
 				<img
-					src="https://img.bunnycdnn.ru/_r/300x400/100/8c/51/8c51c91ae9cf62c968cf84a67a666cc9/8c51c91ae9cf62c968cf84a67a666cc9.jpg"
-					alt="card"
+					src={data.animeImg}
+					alt={data.animeTitle}
+					className="h-[250px] md:h-[280px] lg:h-[300px] object-cover w-full"
+					// className="object-cover h-full w-full"
 				/>
-				<span className="absolute top-0 left-0 bg-white font-semibold p-1 text-sm text-black">
+				<span className="absolute top-0 left-0 bg-neutral font-semibold p-1 text-sm text-white">
 					HD
 				</span>
 				<span className="absolute top-0 right-0 px-1 bg-secondary font-semibold p-1 text-sm text-white">
 					Sub
 				</span>
 				<span className="absolute bottom-0 left-0 px-1 bg-primary font-semibold p-1 text-sm text-white">
-					action
+					{data.releasedDate}
 				</span>
 			</div>
 
-			<p className="text-sm font-semibold text-center line-clamp-2 m-2 sm:m-4">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				Possimus, quos!
+			<p className="text-sm font-semibold text-center line-clamp-2 h-[40px] m-2 sm:m-4">
+				{data.animeTitle}
 			</p>
 		</div>
 	);

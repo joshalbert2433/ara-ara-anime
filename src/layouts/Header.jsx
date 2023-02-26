@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import SwapBurger from "../components/SwapBurger";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header({ handleSubmit }) {
+	const [inputSearchValue, setInputSearchValue] = useState("");
 	return (
 		<header className="bg-base-300">
 			<div className="hidden sm:container mx-auto h-20 sm:flex justify-between place-items-center gap-20">
@@ -11,14 +12,25 @@ function Header() {
 					AraAraAnime
 				</Link>
 
-				<div className="relative">
+				<form
+					className="relative"
+					onSubmit={(e) => {
+						handleSubmit(e);
+					}}
+				>
 					<input
 						type="text"
+						id="animeSearch"
+						name="animeSearch"
 						placeholder="Search Anime"
 						className="input input-bordered w-full max-w-sm pr-12"
+						value={inputSearchValue}
+						onChange={(e) => setInputSearchValue(e.target.value)}
 					/>
-					<FaSearch className="absolute right-4 top-4" />
-				</div>
+					<button type="submit">
+						<FaSearch className="absolute right-4 top-4" />
+					</button>
+				</form>
 
 				<div className="dropdown dropdown-bottom dropdown-end dropdown-hover">
 					<SwapBurger tabIndex={0} />
@@ -34,7 +46,7 @@ function Header() {
 							<Link to="/browse">Browse</Link>
 						</li>
 						<li>
-							<a>Movies</a>
+							<Link to="/movies">Movies</Link>
 						</li>
 						<li>
 							<a>New Release</a>
