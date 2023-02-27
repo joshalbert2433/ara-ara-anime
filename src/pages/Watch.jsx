@@ -12,6 +12,7 @@ import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import VideoSkeleton from "../components/skeleton/VideoSkeleton";
 import EpisodeListSkeleton from "../components/skeleton/EpisodeListSkeleton";
+import Tabs from "../components/Tabs";
 
 let episodeListTemp = 0;
 
@@ -85,8 +86,9 @@ function Watch() {
 			)}
 
 			{episodeListTemp != 0 ? (
-				<div className="my-4 space-y-4 p-4 bg-base-300">
+				<div className="my-4 space-y-4 bg-base-300 p-4">
 					<div className="text-lg font-semibold">Episodes</div>
+					<Tabs />
 					{/* <div className=" flex gap-2 flex-wrap justify-between"> */}
 					<div className="grid grid-cols-[repeat(auto-fill,minmax(40px,1fr))] gap-2">
 						{episodeListTemp.length != 0 &&
@@ -100,7 +102,7 @@ function Watch() {
 													(index + 1)
 											);
 										}}
-										className="py-1 text-center bg-primary text-sm font-bold hover:opacity-75 cursor-pointer rounded-sm "
+										className="cursor-pointer rounded-sm bg-primary py-1 text-center text-sm font-bold hover:opacity-75 "
 										key={index}
 									>
 										{index + 1}
@@ -135,8 +137,8 @@ function Watch() {
 						episodeListTemp = episodesList;
 
 						return (
-							<div className="bg-base-300 p-4 space-y-4">
-								<h3 className="text-white text-lg uppercase">
+							<div className="space-y-4 bg-base-300 p-4">
+								<h3 className="text-lg uppercase text-white">
 									{animeTitle}
 								</h3>
 

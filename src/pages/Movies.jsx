@@ -18,7 +18,7 @@ function Movies() {
 		<>
 			<GenreOption />
 
-			<div className="mx-auto grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] md:grid-cols-5 gap-4 justify-between py-4">
+			<div className="mx-auto grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] justify-between gap-4 py-4 md:grid-cols-5">
 				{animeMoviesQuery.data?.map((data) => {
 					return (
 						<Link to={`/watch/${data.animeId}`} key={data.animeId}>

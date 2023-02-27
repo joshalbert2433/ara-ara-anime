@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getPopularAnime, getTopAiringAnime } from "../api/gogoAnimeAPI";
 import { mustWatchAnime } from "../api/animeData";
 import { Link } from "react-router-dom";
+import Pagination from "../components/Pagination";
 
 function Home() {
 	// const queryClient = useQueryClient();
@@ -33,6 +34,8 @@ function Home() {
 					);
 				})}
 			</div>
+
+			<Pagination />
 		</>
 	);
 }

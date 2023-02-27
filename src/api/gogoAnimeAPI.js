@@ -2,7 +2,8 @@ import Axios from "axios";
 
 const gogoAnimeAPI = Axios.create({
 	// baseURL: "https://gogoanime.consumet.stream/",
-	baseURL: "http://localhost:3000/",
+	// baseURL: "http://localhost:3000/",
+	baseURL: "https://gogo-anime-api-clone.onrender.com/",
 });
 
 const getPopularAnime = async () => {
@@ -41,9 +42,9 @@ const getStreamingUrl = async (watchId) => {
 	}
 };
 
-const getAnimeByGenre = async (genre) => {
+const getAnimeByGenre = async (genre, page) => {
 	try {
-		const response = await gogoAnimeAPI.get(`genre/${genre} `);
+		const response = await gogoAnimeAPI.get(`genre/${genre}?page=${page} `);
 		return response.data;
 	} catch (error) {
 		console.log(error.message);
@@ -68,6 +69,15 @@ const getAnimeByKeyword = async (keyword) => {
 	}
 };
 
+const getAnimeRecentRelease = async () => {
+	try {
+		const response = await gogoAnimeAPI.get("recent-release");
+		return response.data;
+	} catch (error) {
+		console.log(error.message);
+	}
+};
+
 export {
 	getPopularAnime,
 	getTopAiringAnime,
@@ -76,4 +86,5 @@ export {
 	getAnimeByGenre,
 	getAnimeMovies,
 	getAnimeByKeyword,
+	getAnimeRecentRelease,
 };

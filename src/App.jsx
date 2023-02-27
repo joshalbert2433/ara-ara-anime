@@ -23,6 +23,8 @@ import "./App.css";
 import Genre from "./pages/Genre";
 import Movies from "./pages/Movies";
 import Search from "./pages/Search";
+import Footer from "./components/Footer";
+import RecentRelease from "./pages/RecentRelease";
 
 function App() {
 	const navigate = useNavigate();
@@ -43,8 +45,8 @@ function App() {
 		<div>
 			<Header handleSubmit={handleSubmit} />
 
-			<div className="container mx-auto xl:flex gap-4 mt-4">
-				<div className="w-full xl:min-w-[75%] px-4 sm:px-0">
+			<div className="container mx-auto mt-4 min-h-screen gap-4 xl:flex">
+				<div className="w-full px-4 sm:px-0 xl:min-w-[75%]">
 					<Routes>
 						<Route
 							path="/"
@@ -59,6 +61,10 @@ function App() {
 						<Route path="/watch/:id" element={<Watch />}></Route>
 						<Route path="/movies" element={<Movies />}></Route>
 						<Route
+							path="/recent-release"
+							element={<RecentRelease />}
+						></Route>
+						<Route
 							path="/search/:keyword"
 							element={<Search />}
 						></Route>
@@ -66,12 +72,12 @@ function App() {
 				</div>
 
 				{topAiringAnimeQuery.isFetched && (
-					<div className="px-4 mt-4 xl:mt-0 sm:px-0 w-full xl:min-w-[25%]">
+					<div className="mt-4 w-full px-4 sm:px-0 xl:mt-0 xl:min-w-[25%]">
 						<div className="bg-base-300">
-							<h3 className="text-2xl text-center pt-4">
+							<h3 className="pt-4 text-center text-2xl">
 								Top Airing Anime
 							</h3>
-							<div className="p-4 grid sm:grid-cols-2 xl:flex xl:flex-col gap-4 ">
+							<div className="grid gap-4 p-4 sm:grid-cols-2 xl:flex xl:flex-col ">
 								{topAiringAnimeQuery.data?.map((data) => {
 									return (
 										<Link
@@ -90,6 +96,8 @@ function App() {
 					</div>
 				)}
 			</div>
+
+			<Footer />
 		</div>
 	);
 }
