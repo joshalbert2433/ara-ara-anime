@@ -45,9 +45,11 @@ const getStreamingUrl = async (watchId) => {
 const getAnimeByGenre = async (genre, page) => {
 	try {
 		const response = await gogoAnimeAPI.get(`genre/${genre}?page=${page} `);
+		// console.log(response.data);
 		return response.data;
 	} catch (error) {
 		console.log(error.message);
+		// throw 400;
 	}
 };
 

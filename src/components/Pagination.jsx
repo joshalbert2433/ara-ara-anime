@@ -8,14 +8,23 @@ function Pagination({ activePage, setActivePage }) {
 	return (
 		<div className="flex justify-center">
 			<div className="btn-group">
-				<button className="btn">«</button>
+				<button
+					className="btn"
+					disabled={activePage === 1}
+					onClick={() => {
+						setActivePage((prevState) => prevState - 1);
+						navigate(`/genre/${genre}?page=${activePage - 1}`);
+					}}
+				>
+					«
+				</button>
 				<button className="btn">Page {activePage}</button>
 				<button
 					className="btn"
-					// onClick={() => setActivePage((prevState) => prevState + 1)}
 					onClick={() => {
 						console.log(genre);
-						navigate(`/genre/${genre}?page=${activePage}`);
+						setActivePage((prevState) => prevState + 1);
+						navigate(`/genre/${genre}?page=${activePage + 1}`);
 					}}
 				>
 					»

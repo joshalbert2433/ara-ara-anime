@@ -14,11 +14,13 @@ function AnimeCard({ data }) {
 					HD
 				</span>
 				<span className="absolute top-0 right-0 bg-secondary p-1 px-1 text-sm font-semibold text-white">
-					Sub
+					{data.animeTitle.includes("(Dub)") ? "Dub" : "Sub"}
 				</span>
-				<span className="absolute bottom-0 left-0 bg-primary p-1 px-1 text-sm font-semibold text-white">
-					{data.releasedDate}
-				</span>
+				{data.releasedDate && (
+					<span className="absolute bottom-0 left-0 bg-primary p-1 px-1 text-sm font-semibold text-white">
+						{data.releasedDate}
+					</span>
+				)}
 			</div>
 
 			<p className="m-2 h-[40px] text-center text-sm font-semibold line-clamp-2 sm:m-4">

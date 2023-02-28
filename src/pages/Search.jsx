@@ -10,25 +10,35 @@ function Search() {
 
 	const animeSearch = useQuery({
 		queryKey: ["animeSearch", keyword],
-		queryFn: () => getAnimeByKeyword(keyword),
+		queryFn: () => getAnimeByKeyword(keyword) || [],
 		refetchOnWindowFocus: false,
+		retry: false,
+		onError: () => console.log("error po"),
 	});
 
-	animeSearch.isFetching && <div>Loading...</div>;
+	if (animeSearch.isFetching) return <div>Loading...</div>;
+	if (animeSearch?.data?.length === 0) return <div>No Data Found</div>;
+
+	console.log(animeSearch.data);
+	// if (animeSearch.isError) return <div>Loading...</div>;
 
 	return (
 		<>
 			{/* <GenreOption /> */}
-
-			<div className="mx-auto grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] justify-between gap-4 py-4 md:grid-cols-5">
-				{animeSearch.data?.map((data) => {
-					return (
-						<Link to={`/watch/${data.animeId}`} key={data.animeId}>
-							<AnimeCard data={data} />
-						</Link>
-					);
-				})}
-			</div>
+			{animeSearch.data ? (
+				<div className="mx-auto grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] justify-between gap-4 py-4 md:grid-cols-5">
+					{animeSearch.data?.map((data) => {
+						return (
+							<Link
+								to={`/watch/${data.animeId}`}
+								key={data.animeId}
+							>
+								<AnimeCard data={data} />
+							</Link>
+						);
+					})}
+				</div>
+			) : null}
 		</>
 	);
 }
