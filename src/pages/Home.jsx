@@ -8,7 +8,6 @@ import { useQuery } from "@tanstack/react-query";
 import { getPopularAnime, getTopAiringAnime } from "../api/gogoAnimeAPI";
 import { mustWatchAnime } from "../api/animeData";
 import { Link } from "react-router-dom";
-import Pagination from "../components/Pagination";
 
 function Home() {
 	// const queryClient = useQueryClient();
@@ -25,7 +24,7 @@ function Home() {
 		<>
 			<Carousel mustWatchAnime={mustWatchAnime} />
 
-			<div className="mx-auto grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] lg:grid-cols-5 gap-4 justify-between py-4">
+			<div className="mx-auto grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] justify-between gap-4 py-4 lg:grid-cols-5">
 				{popularAnimeQuery.data?.map((data) => {
 					return (
 						<Link to={`/watch/${data.animeId}`} key={data.animeId}>
@@ -34,8 +33,6 @@ function Home() {
 					);
 				})}
 			</div>
-
-			<Pagination />
 		</>
 	);
 }

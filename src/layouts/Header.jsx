@@ -12,7 +12,9 @@ function Header({ handleSubmit }) {
 		<header className="bg-base-300">
 			<div className="mx-auto hidden h-20 place-items-center justify-between gap-20 sm:container sm:flex">
 				<Link to="/" className="text-2xl font-bold">
-					AraAraAnime
+					<span className="text-primary">Ara</span>
+					<span className="text-secondary">Ara</span>
+					<span className="text-accent">Anime</span>
 				</Link>
 
 				<form
@@ -25,7 +27,7 @@ function Header({ handleSubmit }) {
 						type="text"
 						id="animeSearch"
 						name="animeSearch"
-						autocomplete="off"
+						autoComplete="off"
 						placeholder="Search Anime"
 						className="input-bordered input w-full max-w-sm pr-12"
 						value={inputSearchValue}
@@ -36,27 +38,66 @@ function Header({ handleSubmit }) {
 					</button>
 				</form>
 
-				<DropDown />
+				<DropDown>
+					{/* <ul
+						className={`menu rounded-box absolute -left-[175px] top-10 z-50 w-52 bg-base-100 p-2 shadow ${
+							isOpen ? "block" : "hidden"
+						}`}
+					>
+						<li>
+							<Link to="/">Home</Link>
+						</li>
+						<li>
+							<Link to="/browse">Browse</Link>
+						</li>
+						<li>
+							<Link to="/movies">Movies</Link>
+						</li>
+						<li>
+							<Link to="/recent-release">Recent Release</Link>
+						</li>
+					</ul> */}
+				</DropDown>
 			</div>
 
 			{/* mobile view */}
 
 			<div className="container mx-auto flex h-20 place-items-center justify-between gap-20 px-4 sm:hidden">
 				<Link to="/" className="text-2xl font-bold">
-					AraAraAnime
+					<span className="text-primary">Ara</span>
+					<span className="text-secondary">Ara</span>
+					<span className="text-accent">Anime</span>
 				</Link>
 
-				<div className=" flex items-center justify-center gap-8">
-					<FaSearch
-						size={20}
-						className={inputShow && "text-secondary"}
-						onClick={() => setInputShow((prev) => !prev)}
-					/>
-
-					<DropDown />
-				</div>
+				{/* <DropDown /> */}
+				<DropDown>
+					<form
+						className="first-letter relative flex justify-center"
+						onSubmit={(e) => {
+							handleSubmit(e);
+						}}
+					>
+						<input
+							type="text"
+							id="animeSearch"
+							name="animeSearch"
+							autoComplete="off"
+							placeholder="Search Anime"
+							className="input-bordered input w-full max-w-sm"
+							value={inputSearchValue}
+							onChange={(e) =>
+								setInputSearchValue(e.target.value)
+							}
+						/>
+						<button type="submit" className="relative -left-[30px]">
+							{/* hello */}
+							<FaSearch />
+						</button>
+					</form>
+				</DropDown>
 			</div>
-			<div
+
+			{/* <div
 				className={` w-full justify-center bg-base-300 pb-4  ${
 					inputShow ? "flex" : "hidden"
 				}`}
@@ -72,7 +113,7 @@ function Header({ handleSubmit }) {
 						type="text"
 						id="animeSearch"
 						name="animeSearch"
-						autocomplete="off"
+						autoComplete="off"
 						placeholder="Search Anime"
 						className="input-bordered input w-full min-w-full"
 						value={inputSearchValue}
@@ -82,7 +123,7 @@ function Header({ handleSubmit }) {
 						<FaSearch className="absolute right-4 top-4" />
 					</button>
 				</form>
-			</div>
+			</div> */}
 		</header>
 	);
 }

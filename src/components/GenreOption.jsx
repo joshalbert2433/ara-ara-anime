@@ -25,6 +25,8 @@ const genreOptions = [
 ];
 
 function GenreOption({ setActivePage }) {
+	// setActivePage ? setActivePage : null;
+
 	return (
 		<div className="grid w-full grid-cols-[repeat(auto-fill,minmax(100px,1fr))] justify-between gap-2 bg-base-300 p-4 text-center">
 			{genreOptions.map((option) => {
@@ -32,7 +34,7 @@ function GenreOption({ setActivePage }) {
 					<Link
 						to={`/genre/${option}`}
 						key={option}
-						onClick={() => setActivePage(1)}
+						onClick={() => setActivePage && setActivePage(1)}
 					>
 						<div className="cursor-pointer rounded bg-primary py-1 px-2 text-sm font-semibold capitalize text-white hover:opacity-75">
 							{option}

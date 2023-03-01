@@ -17,6 +17,7 @@ function Search() {
 	});
 
 	if (animeSearch.isFetching) return <div>Loading...</div>;
+
 	if (animeSearch?.data?.length === 0) return <div>No Data Found</div>;
 
 	console.log(animeSearch.data);

@@ -16,6 +16,10 @@
 	}
 } */
 
+body {
+	/* overflow: hidden; */
+}
+
 .iframe {
 	overflow: hidden;
 	border: 0;

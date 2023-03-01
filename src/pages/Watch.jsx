@@ -26,7 +26,7 @@ function Watch() {
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-	}, []);
+	}, [id]);
 
 	const animeDetails = useQuery({
 		queryKey: ["animeDetails", id],

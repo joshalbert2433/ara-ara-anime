@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AnimeCard from "../components/AnimeCard";
 import { useQuery } from "@tanstack/react-query";
 import { getPopularAnime, getAnimeByGenre } from "../api/gogoAnimeAPI";
@@ -16,13 +16,17 @@ function Genre() {
 	page = parseInt(page) || 1;
 
 	const [activePage, setActivePage] = useState(page);
-	console.log(activePage);
+	// console.log(activePage);
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [genre, activePage]);
 
 	const genreAnimeQuery = useQuery({
 		queryKey: ["genreAnime", genre, activePage],
 		queryFn: () => getAnimeByGenre(genre, activePage),
 		refetchOnWindowFocus: false,
-		onError: (error) => toast.loading("loading"),
+		// onError: (error) => toast.loading("loading"),
 	});
 	// console.log(genreAnimeQuery.isError);
 	// console.log(genreAnimeQuery.isError);

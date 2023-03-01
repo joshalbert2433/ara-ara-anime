@@ -1,30 +1,151 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Link } from "react-router-dom";
+import { IoMdCloseCircleOutline } from "react-icons/io";
+import { FaSearch } from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
 
-function DropDown() {
+import { Link, NavLink } from "react-router-dom";
+
+function DropDown({ children }) {
+	const [isOpen, setIsOpen] = useState(false);
+
+	const windowWidth = window.innerWidth;
+
+	useEffect(() => {
+		isOpen && windowWidth < 640
+			? (document.body.style.overflow = "hidden")
+			: (document.body.style.overflow = "auto");
+	}, [isOpen, windowWidth]);
+
 	return (
-		<div className="dropdown-bottom dropdown-end dropdown">
-			<GiHamburgerMenu tabIndex={0} size={32} />
+		<>
+			<div className="sm:hidden">
+				{!isOpen ? (
+					<GiHamburgerMenu
+						size={32}
+						onClick={() => setIsOpen(!isOpen)}
+					/>
+				) : (
+					<IoMdCloseCircleOutline
+						size={32}
+						onClick={() => setIsOpen(!isOpen)}
+					/>
+				)}
+			</div>
 
-			<ul
-				tabIndex={0}
-				className="dropdown-content menu rounded-box w-52 bg-base-100 p-2 shadow"
+			<div className="hidden sm:relative sm:block">
+				<GiHamburgerMenu
+					size={32}
+					onClick={() => setIsOpen(!isOpen)}
+					className=""
+				/>
+				<ul
+					className={`menu rounded-box absolute right-[0px] top-[40px] z-50 w-52 bg-base-100 p-2 shadow ${
+						isOpen ? "block" : "hidden"
+					}`}
+				>
+					<li>
+						<NavLink
+							to="/"
+							className={({ isActive }) =>
+								isActive ? "text-accent" : undefined
+							}
+						>
+							Home
+						</NavLink>
+					</li>
+					<li>
+						<NavLink
+							to="/browse"
+							className={({ isActive }) =>
+								isActive ? "text-accent" : undefined
+							}
+						>
+							Browse
+						</NavLink>
+					</li>
+					<li>
+						<NavLink
+							to="/movies"
+							className={({ isActive }) =>
+								isActive ? "text-accent" : undefined
+							}
+						>
+							Movies
+						</NavLink>
+					</li>
+					<li>
+						<NavLink
+							to="/recent-release"
+							className={({ isActive }) =>
+								isActive ? "text-accent" : undefined
+							}
+						>
+							Recent Release
+						</NavLink>
+					</li>
+				</ul>
+			</div>
+
+			<div
+				className={`fixed top-0 left-0 bottom-0 right-0 z-30 overflow-hidden backdrop-blur-xl sm:hidden ${
+					isOpen ? "block" : "hidden"
+				}`}
 			>
-				<li>
-					<Link to="/">Home</Link>
-				</li>
-				<li>
-					<Link to="/browse">Browse</Link>
-				</li>
-				<li>
-					<Link to="/movies">Movies</Link>
-				</li>
-				<li>
-					<Link to="/recent-release">Recent Release</Link>
-				</li>
-			</ul>
-		</div>
+				{/* <div className="relative -bottom-40 z-30 h-screen w-screen overflow-hidden backdrop-blur-xl"> */}
+				<div className="absolute right-[20px] top-[23px] z-50">
+					<IoMdCloseCircleOutline
+						size={36}
+						onClick={() => setIsOpen(!isOpen)}
+					/>
+				</div>
+				<div className="mt-20 px-4">
+					{children}
+					<ul className=" flex flex-col justify-center gap-4 stroke-primary py-8 text-center text-lg font-bold">
+						<li>
+							<NavLink
+								to="/"
+								className={({ isActive }) =>
+									isActive ? "text-accent" : undefined
+								}
+							>
+								Home
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								to="/browse"
+								className={({ isActive }) =>
+									isActive ? "text-accent" : undefined
+								}
+							>
+								Browse
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								to="/movies"
+								className={({ isActive }) =>
+									isActive ? "text-accent" : undefined
+								}
+							>
+								Movies
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								to="/recent-release"
+								className={({ isActive }) =>
+									isActive ? "text-accent" : undefined
+								}
+							>
+								Recent Release
+							</NavLink>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</>
 	);
 }
 
