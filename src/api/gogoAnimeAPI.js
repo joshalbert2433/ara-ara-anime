@@ -43,14 +43,21 @@ const getStreamingUrl = async (watchId) => {
 };
 
 const getAnimeByGenre = async (genre, page) => {
-	try {
-		const response = await gogoAnimeAPI.get(`genre/${genre}?page=${page} `);
-		// console.log(response.data);
-		return response.data;
-	} catch (error) {
-		console.log(error.message);
-		// throw 400;
+	const { data } = await gogoAnimeAPI.get(`genre/${genre}?page=${page} `);
+	console.log(data);
+	if (data.error) {
+		console.log(data.error.message);
+		throw new Error(data.error.message);
 	}
+	return data;
+	// try {
+	// 	const response = await gogoAnimeAPI.get(`genre/${genre}?page=${page} `);
+	// 	console.log(response.data);
+	// 	return response.data;
+	// } catch (error) {
+	// 	console.error(error);
+	// 	throw new Error(error);
+	// }
 };
 
 const getAnimeMovies = async () => {

@@ -11,17 +11,13 @@ function Search() {
 	const animeSearch = useQuery({
 		queryKey: ["animeSearch", keyword],
 		queryFn: () => getAnimeByKeyword(keyword) || [],
-		refetchOnWindowFocus: false,
-		retry: false,
-		onError: () => console.log("error po"),
+
+		onError: (error) => console.log(error),
 	});
 
 	if (animeSearch.isFetching) return <div>Loading...</div>;
 
-	if (animeSearch?.data?.length === 0) return <div>No Data Found</div>;
-
-	console.log(animeSearch.data);
-	// if (animeSearch.isError) return <div>Loading...</div>;
+	if (animeSearch?.data?.length === 0) return <div>Anime not found</div>;
 
 	return (
 		<>

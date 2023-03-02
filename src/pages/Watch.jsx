@@ -49,9 +49,8 @@ function Watch() {
 		enabled:
 			animeDetails?.data != null &&
 			animeDetails?.data?.episodesList.length != 0,
-		queryKey: ["animeStreamingUrl", currentEpisode],
+		queryKey: ["animeStreamingUrl", id, currentEpisode],
 		queryFn: () => getStreamingUrl(animeCurrentEpisode),
-		refetchOnWindowFocus: false,
 	});
 
 	if (animeDetails.isFetching)
@@ -69,7 +68,7 @@ function Watch() {
 		<>
 			{!animeStreamingUrl.isFetching ? (
 				<>
-					{animeStreamingUrl?.data?.sources && (
+					{animeStreamingUrl?.data?.sources ? (
 						<div className="w-full">
 							<ReactHlsPlayer
 								src={animeStreamingUrl?.data?.sources[0].file}
@@ -78,6 +77,10 @@ function Watch() {
 								width="100%"
 								height="auto"
 							/>
+						</div>
+					) : (
+						<div className="bg-base-300 p-4 text-2xl">
+							Status: Upcoming Anime
 						</div>
 					)}
 				</>

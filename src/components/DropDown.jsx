@@ -19,7 +19,8 @@ function DropDown({ children }) {
 
 	return (
 		<>
-			<div className="sm:hidden">
+			{/* DESKTOP VIEW */}
+			<div className="hidden sm:relative sm:block">
 				{!isOpen ? (
 					<GiHamburgerMenu
 						size={32}
@@ -31,14 +32,6 @@ function DropDown({ children }) {
 						onClick={() => setIsOpen(!isOpen)}
 					/>
 				)}
-			</div>
-
-			<div className="hidden sm:relative sm:block">
-				<GiHamburgerMenu
-					size={32}
-					onClick={() => setIsOpen(!isOpen)}
-					className=""
-				/>
 				<ul
 					className={`menu rounded-box absolute right-[0px] top-[40px] z-50 w-52 bg-base-100 p-2 shadow ${
 						isOpen ? "block" : "hidden"
@@ -85,6 +78,21 @@ function DropDown({ children }) {
 						</NavLink>
 					</li>
 				</ul>
+			</div>
+
+			{/* MOBILE VIEW */}
+			<div className="sm:hidden">
+				{!isOpen ? (
+					<GiHamburgerMenu
+						size={32}
+						onClick={() => setIsOpen(!isOpen)}
+					/>
+				) : (
+					<IoMdCloseCircleOutline
+						size={32}
+						onClick={() => setIsOpen(!isOpen)}
+					/>
+				)}
 			</div>
 
 			<div

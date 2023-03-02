@@ -46,7 +46,7 @@ function App() {
 			<Header handleSubmit={handleSubmit} />
 
 			<div className="container mx-auto mt-4 min-h-screen gap-4 xl:flex">
-				<div className="min-h-screen w-full px-4 sm:px-0 xl:min-w-[75%]">
+				<div className="w-full px-4 sm:px-0 xl:min-h-screen xl:min-w-[75%]">
 					<Routes>
 						<Route
 							path="/"
@@ -73,27 +73,6 @@ function App() {
 
 				{topAiringAnimeQuery.isFetched && (
 					<div className="mt-4 flex w-full flex-col gap-4 px-4 sm:px-0 xl:mt-0 xl:min-w-[25%]">
-						<div className="bg-base-300">
-							<h3 className="pt-4 text-center text-2xl">
-								Top Airing Anime
-							</h3>
-							<div className="grid gap-4 p-4 sm:grid-cols-2 xl:flex xl:flex-col ">
-								{topAiringAnimeQuery.data?.map((data) => {
-									return (
-										<Link
-											to={`watch/${data.animeId}`}
-											key={data.animeId}
-										>
-											<TopAnimeCard
-												data={data}
-												key={data.animeId}
-											/>
-										</Link>
-									);
-								})}
-							</div>
-						</div>
-
 						<div className="bg-base-300">
 							<h3 className="pt-4 text-center text-2xl">
 								Top Airing Anime
