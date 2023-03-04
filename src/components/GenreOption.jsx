@@ -25,7 +25,7 @@ const genreOptions = [
 ];
 
 function GenreOption({ setActivePage }) {
-	// setActivePage ? setActivePage : null;
+
 
 	return (
 		<div className="grid w-full grid-cols-[repeat(auto-fill,minmax(100px,1fr))] justify-between gap-2 bg-base-300 p-4 text-center">

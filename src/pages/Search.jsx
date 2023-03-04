@@ -3,7 +3,6 @@ import AnimeCard from "../components/AnimeCard";
 import { useQuery } from "@tanstack/react-query";
 import { getAnimeByKeyword } from "../api/gogoAnimeAPI";
 import { Link, useParams } from "react-router-dom";
-import GenreOption from "../components/GenreOption";
 
 function Search() {
 	const { keyword } = useParams();
@@ -21,7 +20,6 @@ function Search() {
 
 	return (
 		<>
-			{/* <GenreOption /> */}
 			{animeSearch.data ? (
 				<div className="mx-auto grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] justify-between gap-4 py-4 md:grid-cols-5">
 					{animeSearch.data?.map((data) => {

@@ -8,7 +8,6 @@ function AnimeCard({ data }) {
 					src={data.animeImg}
 					alt={data.animeTitle}
 					className="h-[250px] w-full object-cover md:h-[280px] lg:h-[300px]"
-					// className="object-cover h-full w-full"
 				/>
 				<span className="absolute top-0 left-0 bg-neutral p-1 text-sm font-semibold text-white">
 					HD

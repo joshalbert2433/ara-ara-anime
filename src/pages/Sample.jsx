@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 
 import Axios from "axios";
 import React from "react";
-import ReactPlayer from "react-player";
 import Iframe from "react-iframe";
 
 // Render a YouTube video player
@@ -30,9 +29,6 @@ function App() {
 				"Content-Type": "text/html",
 			});
 			if (response) {
-				console.log(response.data);
-				// console.log(response.data.Referer);
-				// setData(response.data);
 				getAnimeVideo(
 					response.data.Referer,
 					response.data.sources[0].file
@@ -48,11 +44,9 @@ function App() {
 	}, []);
 
 	return (
-		<div className="w-[1200px] h-[1200px] relative overflow-hidden">
+		<div className="relative h-[1200px] w-[1200px] overflow-hidden">
 			<Iframe
 				url="https://playgo1.cc/streaming.php?id=MjU2MTU=&title=Naruto+Episode+220&typesub=SUB"
-				// width="auto"
-				// height="320px"
 				id=""
 				className="iframe"
 				display="block"

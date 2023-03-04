@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Iframe from "react-iframe";
 import ReactHlsPlayer from "react-hls-player";
-import ReactPlayer from "react-player";
-import {
-	getAnimeDetails,
-	getStreamingUrl,
-	getTopAiringAnime,
-	getPopularAnime,
-} from "../api/gogoAnimeAPI";
-import { Link, useParams } from "react-router-dom";
+import { getAnimeDetails, getStreamingUrl } from "../api/gogoAnimeAPI";
+import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import VideoSkeleton from "../components/skeleton/VideoSkeleton";
-import EpisodeListSkeleton from "../components/skeleton/EpisodeListSkeleton";
-import Tabs from "../components/Tabs";
 
 let episodeListTemp = 0;
 
@@ -60,10 +51,6 @@ function Watch() {
 			</div>
 		);
 
-	// if (animeStreamingUrl.isFetching) return <div>Loading...</div>;
-
-	// const { sources } = animeStreamingUrl.data || {};
-
 	return (
 		<>
 			{!animeStreamingUrl.isFetching ? (
@@ -91,8 +78,6 @@ function Watch() {
 			{episodeListTemp != 0 ? (
 				<div className="my-4 space-y-4 bg-base-300 p-4">
 					<div className="text-lg font-semibold">Episodes</div>
-					<Tabs />
-					{/* <div className=" flex gap-2 flex-wrap justify-between"> */}
 					<div className="grid grid-cols-[repeat(auto-fill,minmax(40px,1fr))] gap-2">
 						{episodeListTemp.length != 0 &&
 							episodeListTemp.map((episode, index) => {

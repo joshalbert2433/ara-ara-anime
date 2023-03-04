@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -23,8 +23,6 @@ export default function Carousel({ mustWatchAnime }) {
 				pagination={{
 					clickable: true,
 				}}
-				// draggable={true}
-				// navigation={true}
 				modules={[Autoplay, Pagination, Navigation]}
 				className="mySwiper"
 			>
@@ -34,16 +32,15 @@ export default function Carousel({ mustWatchAnime }) {
 							<img
 								src={data.animeImg}
 								alt="img"
-								// className="h-[250px] md:h-[280px] lg:h-[300px] object-cover w-full"
-								className="relative object-cover w-full"
+								className="relative w-full object-cover"
 							/>
-							<div className="absolute top-0 left-0 px-2 bg-primary text-white font-semibold">
+							<div className="absolute top-0 left-0 bg-primary px-2 font-semibold text-white">
 								Must watch
 							</div>
 							<div className="absolute bottom-0 left-0 right-0 bg-base-300">
 								<div className="flex items-center justify-between p-2 sm:p-4">
-									<div className="w-full xl:w-[75%] text-left">
-										<p className="text-md sm:text-2xl font-semibold cursor-pointer">
+									<div className="w-full text-left xl:w-[75%]">
+										<p className="text-md cursor-pointer font-semibold sm:text-2xl">
 											{data.animeTitle}
 										</p>
 										<span className="hidden sm:inline-block sm:line-clamp-2">
@@ -53,7 +50,7 @@ export default function Carousel({ mustWatchAnime }) {
 									<div className="hidden xl:block xl:w-[25%] ">
 										<a
 											href=""
-											className="px-8 py-4 bg-accent text-white rounded-3xl text-2xl font-semibold hover:opacity-75"
+											className="rounded-3xl bg-accent px-8 py-4 text-2xl font-semibold text-white hover:opacity-75"
 										>
 											Watch Now
 										</a>

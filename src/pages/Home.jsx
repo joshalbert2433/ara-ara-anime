@@ -1,17 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import AnimeCard from "../components/AnimeCard";
 import Carousel from "../components/Carousel";
-import { FaEye } from "react-icons/fa";
-import TopAnimeCard from "../components/TopAnimeCard";
-import Browse from "./Browse";
 import { useQuery } from "@tanstack/react-query";
-import { getPopularAnime, getTopAiringAnime } from "../api/gogoAnimeAPI";
+import { getPopularAnime } from "../api/gogoAnimeAPI";
 import { mustWatchAnime } from "../api/animeData";
 import { Link } from "react-router-dom";
 
 function Home() {
-	// const queryClient = useQueryClient();
-
 	const popularAnimeQuery = useQuery({
 		queryKey: ["popularAnime"],
 		queryFn: getPopularAnime,

@@ -16,7 +16,6 @@ function Genre() {
 	page = parseInt(page) || 1;
 
 	const [activePage, setActivePage] = useState(page);
-	// console.log(activePage);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);

@@ -100,7 +100,6 @@ function DropDown({ children }) {
 					isOpen ? "block" : "hidden"
 				}`}
 			>
-				{/* <div className="relative -bottom-40 z-30 h-screen w-screen overflow-hidden backdrop-blur-xl"> */}
 				<div className="absolute right-[20px] top-[23px] z-50">
 					<IoMdCloseCircleOutline
 						size={36}

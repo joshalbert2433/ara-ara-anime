@@ -1,16 +1,12 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import Home from "./pages/Home";
 import Header from "./layouts/Header";
 import TopAnimeCard from "./components/TopAnimeCard";
 import Watch from "./pages/Watch";
 import Browse from "./pages/Browse";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
-import {
-	getPopularAnime,
-	getTopAiringAnime,
-	getAnimeByKeyword,
-} from "./api/gogoAnimeAPI";
+import { getTopAiringAnime } from "./api/gogoAnimeAPI";
 import {
 	BrowserRouter as Router,
 	Routes,
