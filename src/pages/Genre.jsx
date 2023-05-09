@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import AnimeCard from "../components/AnimeCard";
 import { useQuery } from "@tanstack/react-query";
-import { getPopularAnime, getAnimeByGenre } from "../api/gogoAnimeAPI";
+import { getAnimeByGenre } from "../api/gogoAnimeAPI";
 import { Link, useParams, useLocation } from "react-router-dom";
 import GenreOption from "../components/GenreOption";
 import Pagination from "../components/Pagination";
-import AnimeCardSkeleton from "../components/skeleton/AnimeCardSkeleton";
-import toast, { Toaster } from "react-hot-toast";
 
 function Genre() {
 	const { genre } = useParams();
@@ -57,8 +55,6 @@ function Genre() {
 					setActivePage={setActivePage}
 				/>
 			)}
-
-			<Toaster />
 		</>
 	);
 }
